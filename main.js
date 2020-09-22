@@ -1,5 +1,3 @@
-chrome.runtime.sendMessage('pogljmkbjeopifdndihpcmblpemnnejj', {
-   message: 'testWS'
-}, function(reply) {
+chrome.runtime.sendMessage('pogljmkbjeopifdndihpcmblpemnnejj', 'testWS', function(reply) {
    console.log('reply: ' +  reply);
 });

@@ -14,7 +14,10 @@
        }
 
        async function checkAudio() {
-          const audioTag = document.getElementsById("audio")[0];
+          const audioTag = document.getElementById("audio1");
+          const audioTag2 = document.getElementById("audio2");
+          audioTag.play();
+          audioTag2.play();
           await navigator.mediaDevices.getUserMedia({
              audio: true
           })
@@ -23,8 +26,7 @@
              if (device.kind === 'audiooutput') {
                 console.log(`Устанавливаем вывод звука в ${device.deviceId},
                 название устройства  ${device.label}`);
-                await setSinkId(device.deviceId, audioTag)
-
+                await setSinkId(device.deviceId, audioTag2)
              }
           }
        }
@@ -33,12 +35,12 @@
 </head>
 <body>
 <p>Музыка, которую будем приглушать</p>
-<audio controls>
+<audio id="audio1" controls>
     <source  src="2.mp3" type="audio/mpeg">
 </audio>
 <p>Звук из разговора</p>
 <audio controls>
-    <source id="audio" src="1.mp3" type="audio/mpeg">
+    <source id="audio2" src="1.mp3" type="audio/mpeg">
 </audio>
 
 <input type="button" value="Проверить" onclick="checkAudio()">

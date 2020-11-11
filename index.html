@@ -14,7 +14,7 @@
        }
 
        async function checkAudio() {
-          const audioTag = document.getElementsByTagName("audio")[0];
+          const audioTag = document.getElementsById("audio")[0];
           await navigator.mediaDevices.getUserMedia({
              audio: true
           })
@@ -32,11 +32,15 @@
     <title>Тест приглушения звука</title>
 </head>
 <body>
-
-
+<p>Музыка, которую будем приглушать</p>
 <audio controls>
-    <source src="1.mp3" type="audio/mpeg">
+    <source  src="2.mp3" type="audio/mpeg">
 </audio>
+<p>Звук из разговора</p>
+<audio controls>
+    <source id="audio" src="1.mp3" type="audio/mpeg">
+</audio>
+
 <input type="button" value="Проверить" onclick="checkAudio()">
 </body>
 </html>

@@ -5,12 +5,11 @@
     <script>
        async function setSinkId(deviceId, tag) {
           await tag.setSinkId(deviceId);
-          console.log(`Установили
-          `);
+          console.log(`Установили`);
           return new Promise((resolve) => {
              setTimeout(() => {
                 resolve();
-             }, 5000)
+             }, 20000)
           })
        }
 

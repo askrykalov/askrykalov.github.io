@@ -3,18 +3,25 @@
 <head>
     <meta charset="utf-8">
     <script>
+       async function setSinkId(deviceId, tag) {
+          await tag.setSinkId(deviceId)
+       }
+
        async function checkAudio() {
+          const audioTag = document.getElementsByTagName("audio")[0];
           await navigator.mediaDevices.getUserMedia({
              audio: true
           })
           const devices = await navigator.mediaDevices.enumerateDevices()
-          for (device of devices) {
+          for (const device of devices) {
              if (device.kind === 'audiooutput') {
-                console.log(device.deviceId, device.label)
+                console.log(`Устанавливаем вывод звука в ${device.deviceId}, название устройства  ${device.label}`);
+                setSinkId(device.deviceId, audioTag)
              }
           }
        }
     </script>
+    <title>Тест приглушения звука</title>
 </head>
 <body>
 

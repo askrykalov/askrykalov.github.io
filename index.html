@@ -25,7 +25,7 @@
           for (const device of devices) {
              if (device.kind === 'audiooutput') {
                 console.log('Устанавливаем вывод звука в');
-                console.log(device.label);
+                console.log(device);
                 await setSinkId(device.deviceId, audioTag2)
              }
           }

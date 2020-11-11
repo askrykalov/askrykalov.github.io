@@ -1,12 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
 <head>
-    <script src="main.js"></script>
+    <meta charset="utf-8">
+    <script>
+       async function checkAudio() {
+          await navigator.mediaDevices.getUserMedia({
+             audio: true
+          })
+          const devices = await navigator.mediaDevices.enumerateDevices()
+          for (device of devices) {
+             if (device.kind === 'audiooutput') {
+                console.log(device.deviceId, device.label)
+             }
+          }
+       }
+    </script>
 </head>
-
 <body>
-Test WS
-</body>
 
+
+<audio controls>
+    <source src="1.mp3" type="audio/mpeg">
+</audio>
+<input type="button" value="Проверить" onclick="checkAudio()">
+</body>
 </html>

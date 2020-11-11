@@ -5,7 +5,6 @@
     <script>
        async function setSinkId(deviceId, tag) {
           await tag.setSinkId(deviceId);
-          console.log(`Установили`);
           return new Promise((resolve) => {
              setTimeout(() => {
                 resolve();
@@ -24,7 +23,7 @@
           const devices = await navigator.mediaDevices.enumerateDevices()
           for (const device of devices) {
              if (device.kind === 'audiooutput') {
-                console.log('Устанавливаем вывод звука в');
+                console.log('Звук выводится в:');
                 console.log(device);
                 await setSinkId(device.deviceId, audioTag2)
              }

@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <script>
        async function setSinkId(deviceId, tag) {
-          await tag.setSinkId(deviceId)
+          await tag.setSinkId(deviceId);
+          console.log(`Установили
+          `);
           return new Promise((resolve) => {
              setTimeout(() => {
                 resolve();
@@ -23,7 +25,7 @@
                 console.log(`Устанавливаем вывод звука в ${device.deviceId},
                 название устройства  ${device.label}`);
                 await setSinkId(device.deviceId, audioTag)
-                console.log('Установили');
+
              }
           }
        }

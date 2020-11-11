@@ -20,7 +20,8 @@
           const devices = await navigator.mediaDevices.enumerateDevices()
           for (const device of devices) {
              if (device.kind === 'audiooutput') {
-                console.log(`Устанавливаем вывод звука в ${device.deviceId}, название устройства  ${device.label}`);
+                console.log(`Устанавливаем вывод звука в ${device.deviceId},
+                название устройства  ${device.label}`);
                 await setSinkId(device.deviceId, audioTag)
                 console.log('Установили');
              }
